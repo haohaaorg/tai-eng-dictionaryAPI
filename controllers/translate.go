@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/noernova/shn_eng-dic/models"
+	"github.com/noernova/tai-eng-dictionaryAPI/models"
 )
 
 // GET /
