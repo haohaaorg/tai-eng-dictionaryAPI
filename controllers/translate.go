@@ -28,7 +28,7 @@ func Eng_to_Shn(c *gin.Context) {
 	text := c.Param("text")
 
 	if err := models.DB.Where("english = ?", text).Find(&Word).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		c.JSON(http.StatusNotFound, gin.H{"error": "No word found"})
 		return
 	}
 	
@@ -53,7 +53,7 @@ func Shn_to_Eng(c *gin.Context) {
 	text := c.Param("text")
 
 	if err := models.DB.Where("shan = ?", text).Find(&Word).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		c.JSON(http.StatusNotFound, gin.H{"error": "No word found"})
 		return
 	}
 	
