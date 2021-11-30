@@ -13,6 +13,8 @@ func ConnectDatabase() {
 		panic("failed to connect database")
 	}
 	DB = db
-	// Migrate the schema
+}
 
+func CloseDatabase() {
+	DB.Close()
 }

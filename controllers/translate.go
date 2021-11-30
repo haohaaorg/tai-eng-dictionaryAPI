@@ -17,7 +17,7 @@ func Index(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"version": "1.0.0", "message": "Welcome to shn_eng-dic API.", "available_endpoints": apiendpoints })
 }
 
-// GET /api/v1/eng/:text
+// GET /api/v1/api_key={apikey}/eng/:text
 func Eng_to_Shn(c *gin.Context) {
 	var Word []models.Word
 	var Antonym models.Antonym

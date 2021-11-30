@@ -28,6 +28,7 @@ func main() {
 	router := setupRouter()
 
 	models.ConnectDatabase()
+	defer models.CloseDatabase()
 
 	router.Run(":8080")
 }
