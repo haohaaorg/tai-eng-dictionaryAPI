@@ -14,15 +14,20 @@ import (
 	"github.com/noernova/tai-eng-dictionaryAPI/models"
 )
 
-func main() {
+func setupRouter() *gin.Engine {
 	router := gin.Default()
-
-	models.ConnectDatabase()
-
 	router.GET("/", controllers.Index)
 
 	router.GET("/api/v1/api_key=NO8p3FC4qMrTzx1RUjRXNXWrqlLa8DkDjmRgt7s9rDE=/eng/:text", controllers.Eng_to_Shn)
 	router.GET("/api/v1/api_key=NO8p3FC4qMrTzx1RUjRXNXWrqlLa8DkDjmRgt7s9rDE=/shn/:text", controllers.Shn_to_Eng)
+
+	return router
+}
+
+func main() {
+	router := setupRouter()
+
+	models.ConnectDatabase()
 
 	router.Run(":8080")
 }
