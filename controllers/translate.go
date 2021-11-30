@@ -14,7 +14,7 @@ func Index(c *gin.Context) {
 		"/api/v1/apikey={apikey}shn/:text",
 	}
 
-	c.JSON(http.StatusOK, gin.H{"version": "1.0.0", "message": "Welcome to shn_eng-dic API.", "available_endpoints:": apiendpoints })
+	c.JSON(http.StatusOK, gin.H{"version": "1.0.0", "message": "Welcome to shn_eng-dic API.", "available_endpoints": apiendpoints })
 }
 
 // GET /api/v1/eng/:text
