@@ -14,6 +14,8 @@ import (
 	"github.com/noernova/tai-eng-dictionaryAPI/models"
 )
 
+port := os.Getenv("PORT")
+
 func setupRouter() *gin.Engine {
 	router := gin.Default()
 	router.GET("/", controllers.Index)
@@ -30,5 +32,9 @@ func main() {
 	models.ConnectDatabase()
 	defer models.CloseDatabase()
 
-	router.Run(":8080")
+  if port == "" {
+    port = "8080"
+  }
+
+	router.Run(port)
 }
