@@ -9,15 +9,22 @@
 package main
 
 import (
-  "os"
-  "fmt"
+	"os"
+
 	"github.com/gin-gonic/gin"
 	"github.com/noernova/tai-eng-dictionaryAPI/controllers"
 	"github.com/noernova/tai-eng-dictionaryAPI/models"
 )
 
 func setupRouter() *gin.Engine {
-  gin.SetMode(gin.ReleaseMode)
+	ginMode := os.Getenv("GIN_MODE")
+
+	if ginMode == "" { 
+		ginMode = "debug"
+	}
+
+	gin.SetMode(ginMode)
+
 	router := gin.Default()
 	router.GET("/", controllers.Index)
 
@@ -35,12 +42,9 @@ func main() {
 
   port := os.Getenv("PORT")
 
-  fmt.Println("Server is running on port: " + port)
-
-
   if port == "" {
     port = "8080"
   }
 
-	router.Run(port)
+	router.Run(":"+port)
 }
