@@ -1,8 +1,8 @@
 package main
 
 import (
-	"bytes"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -11,8 +11,6 @@ import (
 	"github.com/noernova/tai-eng-dictionaryAPI/controllers"
 	"github.com/noernova/tai-eng-dictionaryAPI/models"
 	"github.com/stretchr/testify/assert"
-
-	"fmt"
 )
 
 func Router() *gin.Engine {
@@ -26,6 +24,7 @@ func Router() *gin.Engine {
 	router.GET("/api/v1/api_key=NO8p3FC4qMrTzx1RUjRXNXWrqlLa8DkDjmRgt7s9rDE=/shn/:text", controllers.Shn_to_Eng)
 	return router
 }
+
 func TestAllEndPoint(t *testing.T) {
 	r := Router()
 	
@@ -35,18 +34,6 @@ func TestAllEndPoint(t *testing.T) {
 	
 	assert.Equal(t, http.StatusOK, w.Code)
 
-}
-
-func TestAccessEndPoint(t *testing.T) {
-	router := Router()
-
-	w := httptest.NewRecorder()
-
-	req, _ := http.NewRequest("GET", "/api/v1/api_key=NO8p3FC4qMrTzx1RUjRXNXWrqlLa8DkDjmRgt7s9rDE=/eng/test", nil)
-	router.ServeHTTP(w, req)
-
-	assert.Equal(t, http.StatusOK, w.Code)
-	assert.NotNil(t, w.Body)
 }
 
 func TestIndexEndPoint(t *testing.T) {
@@ -72,31 +59,15 @@ func TestIndexEndPoint(t *testing.T) {
 	assert.Equal(t, "Welcome to shn_eng-dic API.", resp["message"])
 	assert.Equal(t, available_endpoints , resp["available_endpoints"])
 }
-
 func TestEng_to_ShnEndPoint(t *testing.T) {
-	r := Router()
-
-	body := []byte(`{
-		"id": 22579,
-		"english": "test",
-		"shan": "လွင်ႈၸႅတ်ႈ",
-		"Antonym": {
-		  "word_id": 0,
-		  "english": "",
-		  "shan": ""
-		},
-		"Definition": {
-		  "word_id": 22579,
-		  "english": "a way of discovering, by questions or practical activities, what someone knows, or what someone or something can do or is like",
-		  "shan": "လွင်ႈၸႅတ်ႈ ၊ လွင်ႈထတ်း ၊ လွင်ႈၸၢမ်း ၊ ပၢင်ႈၸၢမ်းတွပ်ႈလိၵ်ႈ ။",
-		  "pos": "Noun",
-		  "uncount": "[C]"
-		}
-	  }`)
+	router := Router()
 
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", fmt.Sprintf("/api/v1/api_key=NO8p3FC4qMrTzx1RUjRXNXWrqlLa8DkDjmRgt7s9rDE=/eng/%s", "test"), bytes.NewBuffer(body))
-	r.ServeHTTP(w, req)
+	testWord := "test"
+
+	req, _ := http.NewRequest("GET", fmt.Sprintf("/api/v1/api_key=NO8p3FC4qMrTzx1RUjRXNXWrqlLa8DkDjmRgt7s9rDE=/eng/%s", testWord), nil)
+	
+	router.ServeHTTP(w, req)
 
 	assert.Equal(t, http.StatusOK, w.Code)
 	assert.NotNil(t, w.Body)
@@ -108,6 +79,26 @@ func TestEng_to_ShnEndPoint(t *testing.T) {
 	err := json.Unmarshal(resp_body, &resp)
 
 	assert.Nil(t, err)
-	// assert.Equal(t, "test", resp["english"])
-	// assert.Equal(t, "လွင်ႈၸႅတ်ႈ", resp["shan"])
+}
+
+func TestShn_to_EngEndPoint(t *testing.T) {
+	router := Router()
+
+	w := httptest.NewRecorder()
+
+	testWord := "ၸၢမ်းတူၺ်း"
+
+	req, _ := http.NewRequest("GET", fmt.Sprintf("/api/v1/api_key=NO8p3FC4qMrTzx1RUjRXNXWrqlLa8DkDjmRgt7s9rDE=/eng/%s", testWord), nil)
+	router.ServeHTTP(w, req)
+
+	assert.Equal(t, http.StatusOK, w.Code)
+	assert.NotNil(t, w.Body)
+
+	var resp map[string]interface{}
+	body_str := w.Body.String()
+	var resp_body = []byte(body_str)
+
+	err := json.Unmarshal(resp_body, &resp)
+
+	assert.Nil(t, err)
 }
