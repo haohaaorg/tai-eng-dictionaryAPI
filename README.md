@@ -1,11 +1,5 @@
 <div id="top"></div>
 
-[![Forks][forks-shield]][https://github.com/NoerNova/tai-eng-dictionaryAPI]
-[![Stargazers][stars-shield]][https://github.com/NoerNova/tai-eng-dictionaryAPI/stargazers]
-[![Issues][issues-shield]][https://github.com/NoerNova/tai-eng-dictionaryAPI/issues]
-[![GNU License][license-shield]][https://www.gnu.org/licenses/gpl-3.0.txt]
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -93,15 +87,15 @@ Check out [Golang](https://go.dev/learn/) website first in case you are not fami
 ### Installation
 
 1. Clone this project 
-	```sh
-	go get https://github.com/NoerNova/tai-eng-dictionaryAPI.git
-	```
+    ```sh
+    go get https://github.com/NoerNova/tai-eng-dictionaryAPI.git
+    ```
 2. ```sh
-	cd /tai-eng-dictionaryAPI
+    cd /tai-eng-dictionaryAPI
 	
-	# API Endpoint http://127.0.0.1:8080/api/v1/api_key=${API_KEY}/eng/:text
-	# API Endpoint  http://127.0.0.1:8080/api/v1/api_key=${API_KEY}/shn/:text
-	```
+    # API Endpoint http://127.0.0.1:8080/api/v1/api_key=${API_KEY}/eng/:text
+    # API Endpoint  http://127.0.0.1:8080/api/v1/api_key=${API_KEY}/shn/:text
+    ```
 
 
 
