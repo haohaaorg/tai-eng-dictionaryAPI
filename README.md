@@ -175,10 +175,8 @@ Distributed under the [GNU](https://www.gnu.org/licenses/gpl-3.0.txt) License.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTACT -->
-## Contact
+## Contributor
 
-NorHsangPha - [@noer_nova](https://twitter.com/noer_nova) - noernova666@gmail.com
-
-Project Link: [https://github.com/NoerNova/tai-eng-dictionaryAPI](https://github.com/NoerNova/tai-eng-dictionaryAPI)
+NorHsangPha - [noernova.com](https://noernova.com) - haohaa.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
