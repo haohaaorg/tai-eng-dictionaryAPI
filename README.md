@@ -12,9 +12,9 @@
     <br />
     <a href="https://tai-eng-dictionaryapi.herokuapp.com/api/v1/api_key=NO8p3FC4qMrTzx1RUjRXNXWrqlLa8DkDjmRgt7s9rDE=/eng/apple">View Demo</a>
     ·
-    <a href="https://github.com/NoerNova/tai-eng-dictionaryAPI/issues">Report Bug</a>
+    <a href="https://github.com/haohaaorg/tai-eng-dictionaryAPI/issues">Report Bug</a>
     ·
-    <a href="https://github.com/NoerNova/tai-eng-dictionaryAPI/issues">Request Feature</a>
+    <a href="https://github.com/haohaaorg/tai-eng-dictionaryAPI/issues">Request Feature</a>
   </p>
 </div>
 
@@ -70,7 +70,7 @@ This is a very easy Dictionary with a small database ,thanks to [https://github.
 
 ## Dictionary website
 
-* Project source Chack [https://github.com/NoerNova/tai-eng-dictionary](https://github.com/NoerNova/tai-eng-dictionary) for web project build with Nextjs.
+* Project source Chack [https://github.com/haohaaorg/tai-eng-dictionary](https://github.com/haohaaorg/tai-eng-dictionary) for web project build with Nextjs.
 * Website [https://taidictionary.noernova.com](https://taidictionary.noernova.com)
 
 
@@ -88,7 +88,7 @@ Check out [Golang](https://go.dev/learn/) website first in case you are not fami
 
 1. Clone this project 
     ```sh
-    go get https://github.com/NoerNova/tai-eng-dictionaryAPI.git
+    go get https://github.com/haohaaorg/tai-eng-dictionaryAPI.git
     ```
 2. ```sh
     cd /tai-eng-dictionaryAPI
@@ -138,7 +138,7 @@ This dictionary can translate in Tai to English and English to Shan
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/NoerNova/tai-eng-dictionaryAPI/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/haohaaorg/tai-eng-dictionaryAPI/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
